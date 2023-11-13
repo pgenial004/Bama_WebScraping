@@ -6,6 +6,7 @@ import json
 import pandas as pd
 from pandas import json_normalize
 request = net.Net()
+
 print("Each page contains information on 30 vehicles.")
 pages = int(input("How many pages of information do you want to extract? "))
 def random_us():
@@ -20,7 +21,7 @@ def random_us():
     _USER_AGENTS = [FF_USER_AGENT, OPERA_USER_AGENT, EDGE_USER_AGENT, CHROME_USER_AGENT, SAFARI_USER_AGENT]
     return (random.choice(_USER_AGENTS))
 
-headers = {'Origin': 'https://bama.ir/','User-Agent': random_us()}
+headers = {'Origin': 'https://www.accessengllc.com/projects-bidding','User-Agent': random_us()}
 add = []
 for page in range(1,pages+1):
     data = request.http_GET(f"https://bama.ir/api/car/search?pageIndex={page}", headers=headers).content
